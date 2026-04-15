@@ -25,6 +25,7 @@
                 `;
             });
         }
+        
 
         function saveItem() {
             const idInput = document.getElementById('helysegId').value;
