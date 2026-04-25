@@ -5,16 +5,19 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Adatbázis adatok
+// Adatbázis csatlakozási adatok (Helyi környezet)
 $host = 'localhost'; 
 $db = 'web1'; 
 $user = 'root'; 
 $pass = ''; 
 
 try {
-    echo("siker")
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
 } catch(PDOException $e) {
+    http_response_code(500);
     die(json_encode(["error" => "Kapcsolódási hiba: " . $e->getMessage()]));
 }
 
@@ -22,7 +25,7 @@ $input = json_decode(file_get_contents('php://input'), true);
 
 if ($method == 'GET') {
     $stmt = $pdo->query("SELECT * FROM helyseg");
-    echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+    echo json_encode($stmt->fetchAll());
 } elseif ($method == 'POST') {
     $stmt = $pdo->prepare("INSERT INTO helyseg (nev, orszag) VALUES (?, ?)");
     $stmt->execute([$input['nev'], $input['orszag']]);
