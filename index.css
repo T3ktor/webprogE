@@ -48,14 +48,16 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* --- Tartalmi rész --- */
+/* --- Tartalmi rész (Javított, arányosabb méretezés) --- */
 main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px 40px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    min-height: 200px;
 }
 
 main h2 {
@@ -124,7 +126,7 @@ footer {
 
 /* --- OOJS Alakzatok stílusa --- */
 .shape-element {
-    position: absolute; /* Ez a kulcs a véletlenszerű elhelyezéshez! */
+    position: absolute; 
     border: 2px solid rgba(0,0,0,0.2);
     transition: transform 0.2s ease;
     cursor: pointer;
@@ -138,7 +140,7 @@ footer {
 
 #controls {
     position: relative;
-    z-index: 100; /* Hogy a gombok mindig az alakzatok felett legyenek */
+    z-index: 100; 
     text-align: center;
     padding: 20px;
     background: white;
