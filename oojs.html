@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <script src="oojs.js"></script>
     <meta charset="UTF-8">
     <title>Objektumorientált JS (OOJS)</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="oojs.js" defer></script>
 </head>
 <body>
-    <nav><a href="index.html">⬅ Vissza a főoldalra</a></nav>
+    <nav>
+        <a href="index.html">⬅ Vissza a főoldalra</a>
+    </nav>
+    
     <div id="controls">
         <h1>OOJS Alakzat Generáló</h1>
-        <p>Kattints a gombokra új objektumok létrehozásához!</p>
-        <button onclick="spawnCircle()">Új Kör (Circle)</button>
-        <button onclick="spawnSquare()">Új Négyzet (Square)</button>
+        <p>Kattints a gombokra új objektumok létrehozásához a képernyőn!</p>
+        <button class="save-btn" onclick="spawnCircle()">Új Kör (Circle)</button>
+        <button class="edit-btn" onclick="spawnSquare()">Új Négyzet (Square)</button>
     </div>
-</body>
+
+    </body>
 </html>

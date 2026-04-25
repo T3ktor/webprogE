@@ -121,3 +121,26 @@ footer {
     background-color: #f0f2f5;
     margin-top: 50px;
 }
+
+/* --- OOJS Alakzatok stílusa --- */
+.shape-element {
+    position: absolute; /* Ez a kulcs a véletlenszerű elhelyezéshez! */
+    border: 2px solid rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.shape-element:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+#controls {
+    position: relative;
+    z-index: 100; /* Hogy a gombok mindig az alakzatok felett legyenek */
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-bottom: 2px solid #eee;
+}
